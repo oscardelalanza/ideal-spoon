@@ -15,11 +15,18 @@ const compoundInterest = (deposit, contribution, years, rate) => {
   return Math.round(total)
 }
 
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+})
+
 function App() {
   const [balance, setBalance] = useState('')
   const handleSubmit = ({ deposit, contribution, years, rate}) => {
     const val = compoundInterest(Number(deposit), Number(contribution), Number(years), Number(rate))
-    setBalance(val)
+    setBalance(formatter.format(val))
   }
 
   return (
