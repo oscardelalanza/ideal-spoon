@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
 import Input from './components/Input'
 import Button from './components/Button'
 import Container from './components/Container'
@@ -40,6 +41,12 @@ function App() {
             rate: ''
           }}
           onSubmit={handleSubmit}
+          validationSchema={Yup.object({
+            deposit: Yup.number().required('Mandatory'),
+            contribution: Yup.number().required('Mandatory'),
+            years: Yup.number().required('Mandatory'),
+            rate: Yup.number().required('Mandatory'),
+          })}
         >
           <Form>
             <Input name="deposit" label="Initial deposit" />
