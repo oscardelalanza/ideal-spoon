@@ -4,6 +4,7 @@ import Input from './components/Input'
 import Button from './components/Button'
 import Container from './components/Container'
 import Section from './components/Section'
+import Balance from './components/Balance'
 
 const compoundInterest = (deposit, contribution, years, rate) => {
   let total = deposit
@@ -41,7 +42,7 @@ function App() {
             <Button>Calculate</Button>
           </Form>
         </Formik>
-        {balance !== '' ? `Final balance: ${balance}` : null}
+        <Balance>Final Balance {balance}</Balance>
       </Section>
     </Container>
   )
