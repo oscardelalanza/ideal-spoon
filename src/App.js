@@ -45,7 +45,7 @@ function App() {
             deposit: Yup.number().required('Mandatory').typeError('must be a number'),
             contribution: Yup.number().required('Mandatory').typeError('must be a number'),
             years: Yup.number().required('Mandatory').typeError('must be a number'),
-            rate: Yup.number().required('Mandatory').typeError('must be a number'),
+            rate: Yup.number().required('Mandatory').typeError('must be a number', 'Min value is 0').min(0).max(1, 'Max value is 1'),
           })}
         >
           <Form>
