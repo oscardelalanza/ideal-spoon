@@ -42,10 +42,10 @@ function App() {
           }}
           onSubmit={handleSubmit}
           validationSchema={Yup.object({
-            deposit: Yup.number().required('Mandatory'),
-            contribution: Yup.number().required('Mandatory'),
-            years: Yup.number().required('Mandatory'),
-            rate: Yup.number().required('Mandatory'),
+            deposit: Yup.number().required('Mandatory').typeError('must be a number'),
+            contribution: Yup.number().required('Mandatory').typeError('must be a number'),
+            years: Yup.number().required('Mandatory').typeError('must be a number'),
+            rate: Yup.number().required('Mandatory').typeError('must be a number'),
           })}
         >
           <Form>
@@ -53,7 +53,7 @@ function App() {
             <Input name="contribution" label="Annual contribution" />
             <Input name="years" label="Years" />
             <Input name="rate" label="Estimated interest" />
-            <Button type="button">Calculate</Button>
+            <Button type="submit">Calculate</Button>
           </Form>
         </Formik>
         <Balance>Final Balance {balance}</Balance>
