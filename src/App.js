@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Formik, Form } from 'formik'
 import Input from './components/Input'
 import Button from './components/Button'
@@ -14,9 +15,10 @@ const compoundInterest = (deposit, contribution, years, rate) => {
 }
 
 function App() {
+  const [balance, setBalance] = useState('')
   const handleSubmit = ({ deposit, contribution, years, rate}) => {
     const val = compoundInterest(Number(deposit), Number(contribution), Number(years), Number(rate))
-    console.log(val);
+    setBalance(val)
   }
 
   return (
@@ -39,6 +41,7 @@ function App() {
             <Button>Calculate</Button>
           </Form>
         </Formik>
+        {balance !== '' ? `Final balance: ${balance}` : null}
       </Section>
     </Container>
   )
